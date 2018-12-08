@@ -1,10 +1,10 @@
-# amWiki轻文库
+# 张晓武的个人文库
 
 <br>
 
-![欢迎使用amWiki！](amWiki/images/logo.png "欢迎使用amWiki！")  
+![欢迎访问个人csdn博客](amWiki/images/logo.png "欢迎使用amWiki！")  
 
-### 欢迎使用 amWiki 轻文库!
-—— **amWiki 致力于让大家可以更简单、更便捷的建设个人和团队文库！**  
+### 哇！你又来学习了，真厉害！
+—— **求学务实！**  
 
-[ [amWiki 官网文档中心](https://amwiki.org/doc/) ]
+[ [个人csdn中心](https://blog.csdn.net/W_litttle) ]
