@@ -7,6 +7,8 @@
 
 ##### Java学习笔记
 - [Object类](?file=001-Java学习笔记/001-Object类 "Object类")
+- [Scanner&String类](?file=001-Java学习笔记/002-Scanner&String类 "Scanner&String类")
+- [StringBuffer类](?file=001-Java学习笔记/003-StringBuffer类 "StringBuffer类")
 
 ##### Linux学习笔记
 - [Linux常见命令](?file=002-Linux学习笔记/21-Linux常见命令 "Linux常见命令")
