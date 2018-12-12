@@ -9,6 +9,10 @@
 - [Object类](?file=001-Java学习笔记/001-Object类 "Object类")
 - [Scanner&String类](?file=001-Java学习笔记/002-Scanner&String类 "Scanner&String类")
 - [StringBuffer类](?file=001-Java学习笔记/003-StringBuffer类 "StringBuffer类")
+- [冒泡&选择&二分查找](?file=001-Java学习笔记/004-冒泡&选择&二分查找 "冒泡&选择&二分查找")
+- [Array&Integer类](?file=001-Java学习笔记/005-Array&Integer类 "Array&Integer类")
+- [正则表达式](?file=001-Java学习笔记/006-正则表达式 "正则表达式")
+- [常见的类](?file=001-Java学习笔记/007-常见的类 "常见的类")
 
 ##### Linux学习笔记
 - [Linux常见命令](?file=002-Linux学习笔记/21-Linux常见命令 "Linux常见命令")

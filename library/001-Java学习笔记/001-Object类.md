@@ -3,12 +3,14 @@
 ---
 
 ### 1_API概述
+
 * A:API(Application Programming Interface)
 	* 应用程序编程接口
 * B:Java API
 	* 就是Java提供给我们使用的类，这些类将底层的实现封装了起来
 
 ### 2_Object类的概述
+
 * A:Object类概述
 	* 类层次结构的根类
 	* 所有类都直接或者间接的继承自该类
@@ -47,6 +49,7 @@ System.out.println(name);
 * b:它的值等于：
 	* getClass().getName() + "@" + Integer.toHexString(hashCode())
 * c:由于默认情况下的数据对我们来说没有意义，一般建议重写该方法。
+
 ```
 /**
  * @param args
@@ -72,20 +75,24 @@ public static void main(String[] args) {
 	System.out.println("我的姓名是：" + s.getName() + ",我的年龄是："+ s.getAge());
 }
 ```
+
 ### 6_Object类的equals()方法
 
 **Object的equals方法**
 比较两个对象是否相等
+
 ```
 public boolean equals(Object obj){
 	  return (this == obj);
 }
 ```
+
 * a:指示其他某个对象是否与此对象“相等”。
 * b:默认情况下比较的是对象的引用是否相同。
 * c: Object中的equals方法是比较对象的地址值，没有什么意义，我们 需要重写它。 因为在开发中我们通常比较的是对象中的属性值，我们认为 相同属性是同一个对象，这样我们就需要重写equals方法。
 
 **重写equals()方法**
+
 ```
 //多态
 @Override
@@ -98,6 +105,7 @@ public boolean equals(Object obj) {
 ```
 
 ### 7_==号和equals方法的区别
+
 **共同点**：都可以做比较，返回值都是boolean
 
 **区别：**

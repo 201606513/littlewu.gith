@@ -2,6 +2,7 @@
 
 ---
 ## Scanner
+
 ### Scanner的概述和方法介绍
 * A:Scanner的概述
 * B:Scanner的构造方法原理
@@ -15,6 +16,7 @@
 
 
 ### Scanner获取数据出现的小问题及解决方案
+
 * A:两个常用的方法：
 	* public int nextInt():获取一个int类型的值
 	* public String nextLine():获取一个String类型的值
@@ -26,6 +28,7 @@ nextLine()是键盘录入字符串的方法,可以接收任意类型,但是他�
 	* c:问题解决方案
 		* 第一种：先获取一个数值后，在创建一个新的键盘录入对象获取字符串。
 		*  第二种：把所有的数据都先按照字符串获取，然后要什么，你就对应的转换为什么.
+
 ```
 /*
  * 解决方案
@@ -40,13 +43,16 @@ System.out.println(line);
 ```
 
 ## String类
+
 ### String类的概述
-* A:String类的概述	
+
+* A:String类的概述
 	* 通过JDK提供的API，查看String类的说明
-	
+
 	* 可以看到这样的两句话。
 		* a:字符串字面值"abc"也可以看成是一个字符串对象。
 		* b:字符串是常量，一旦被赋值，就不能被改变。
+
 ```
 public static void main(String[] args) {
 	//Person p = new Person();
@@ -60,11 +66,14 @@ public static void main(String[] args) {
 ### String类的构造方法
 
 * public String():空构造
+
 ```
 String s1 = new String();
 System.out.println(s1);//输出空
 ```
+
 * public String(byte[] bytes):把字节数组转成字符串
+
 ```
 byte[] arr1 = {97,98,99};		
 String s2 = new String(arr1);//解码,将计算机读的懂的转换成我们读的懂
@@ -72,6 +81,7 @@ System.out.println(s2);//输出abc
 ```
 
 * public String(byte[] bytes,int index,int length):把字节数组的一部分转成字符串
+
 ```
 byte[] arr2 = {97,98,99,100,101,102};
 String s3 = new String(arr2,2,3);//将arr2字节数组从2索引开始转换3个
@@ -79,29 +89,35 @@ System.out.println(s3);//输出cde
 ```
 
 * public String(char[] value):把字符数组转成字符串
+
 ```
 char[] arr3 = {'a','b','c','d','e'};	//将字符数组转换成字符串
 String s4 = new String(arr3);
 System.out.println(s4);//输出abcde
 ```
+
 * public String(char[] value,int index,int count):把字符数组的一部分转成字符串
+
 ```
 char[] arr3 = {'a','b','c','d','e'};	//将字符数组转换成字符串
 String s5 = new String(arr3,1,3);//将arr3字符数组,从1索引开始转换3个
 System.out.println(s5);//输出bcd
 ```
+
 * public String(String original):把字符串常量值转成字符串
+
 ```
 String s6 = new String("你好");
 System.out.println(s6);//输出你好
 ```
 
 ### String类的常见面试题
+
 * 1.判断定义为String类型的s1和s2是否相等
 	* String s1 = "abc";
 	* String s2 = "abc";
 	* System.out.println(s1 == s2); 		//true				
-	* System.out.println(s1.equals(s2)); 	//true	
+	* System.out.println(s1.equals(s2)); 	//true
 * 2.下面这句话在内存中创建了几个对象?
 	* String s1 = new String("abc");			
 * 3.判断定义为String类型的s1和s2是否相等
@@ -113,7 +129,7 @@ System.out.println(s6);//输出你好
     * byte b = 3 + 4;			//在编译时就变成7,把7赋值给b,常量优化机制
 	* String s1 = "a" + "b" + "c";
 	* String s2 = "abc";
-	* System.out.println(s1 == s2);	//true,java中有常量优化机制	
+	* System.out.println(s1 == s2);	//true,java中有常量优化机制
 	* System.out.println(s1.equals(s2));//true
 * 5.判断定义为String类型的s1和s2是否相等
 	* String s1 = "ab";
@@ -122,7 +138,8 @@ System.out.println(s6);//输出你好
 	* System.out.println(s3 == s2);//false
 	* System.out.println(s3.equals(s2));//true
 
-###String类的判断功能
+### String类的判断功能
+
 **String类的判断功能**
 
 * boolean equals(Object obj):比较字符串的内容是否相同,区分大小写
@@ -139,6 +156,7 @@ System.out.println(s6);//输出你好
 * null是空常量,不能调用任何的方法,否则会出现空指针异常,null常量可以给任意的引用数据类型赋值
 
 ### 模拟用户登录
+
 * A:案例演示
 	* 需求：模拟登录,给三次机会,并提示还有几次。
 	* 用户名和密码都是admin
@@ -151,17 +169,17 @@ System.out.println(s6);//输出你好
 ```
 public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);	//创建键盘录入对象
-	
+
 	for(int i = 0; i < 3; i++) {
 		System.out.println("请输入用户名:");
-		
+
 		//将键盘录入的用户名存储在userName中
 		String userName = sc.nextLine();
-		
+
 		System.out.println("请输入密码:");
 		//将键盘录入的密码存储在password中
 		String password = sc.nextLine();			
-		
+
 		//如果是字符串常量和字符串变量比较,通常都是字符串常量调用方法,将变量当作参数传递,防止空指针异常
 		if("admin".equals(userName) && "admin".equals(password)) {
 			System.out.println("欢迎" + userName + "登录");
@@ -178,17 +196,21 @@ public static void main(String[] args) {
 ```
 
 ### String类的获取功能
+
 **String类的获取功能**
 
 * int length():获取字符串的长度。
+
 ```
 //length()是一个方法,获取的是每一个字符的个数
 String s1 = "zhangxiaowu";
-System.out.println(s1.length());	
+System.out.println(s1.length());
 String s2 = "你要减肥,造吗?";
 System.out.println(s2.length());//输出8
 ```
+
 * char charAt(int index):获取指定索引位置的字符
+
 ```
 //根据索引获取对应位置的字符
 char c = s2.charAt(5);								
@@ -218,6 +240,7 @@ System.out.println(index4);
 * int indexOf(int ch,int fromIndex):返回指定字符在此字符串中从指定位置后第一次出现处的索引。
 * int indexOf(String str,int fromIndex):返回指定字符串在此字符串中从指定位置后第一次出现处的索引。
 * lastIndexOf
+
 ```
 String s1 = "zhangxiiaowu";
 int index1 = s1.indexOf('a', 3);		//从指定位置开始向后找
@@ -230,8 +253,10 @@ int index3 = s1.lastIndexOf('a', 7);	//从指定位置向前找
 System.out.println(index3);
 }
 ```
+
 * String substring(int start):从指定位置开始截取字符串,默认到末尾。
 * String substring(int start,int end):从指定位置开始到指定位置结束截取字符串。
+
 ```
 String s1 = "zhangxiiaowu";
 String s2 = s1.substring(5);
@@ -240,7 +265,9 @@ System.out.println(s2);
 String s3 = s1.substring(0, 5);	//包含头,不包含尾,左闭右开
 System.out.println(s3);
 ```
+
 **注意：**
+
 ```
 String s = "zhangxiiaowu";
 s.substring(4);		//subString会产生一个新额字符串,需要将新的字符串记录
@@ -248,7 +275,9 @@ System.out.println(s);//zhangxiiaowu
 ```
 
 ### 字符串的遍历
+
 * 需求：遍历字符串
+
 ```
 public static void main(String[] args) {
 	String s = "zhangxiaowu";
@@ -257,14 +286,16 @@ public static void main(String[] args) {
 	for(int i = 0; i < s.length(); i++) { 		
 	    /*char c = s.charAt(i);
 		System.out.println(c);*/
-		System.out.println(s.charAt(i)); //通过索引获取每一个字符	
+		System.out.println(s.charAt(i)); //通过索引获取每一个字符
 	}
 }
 ```
-	 
+
 ### 统计不同类型字符个数
+
 * 需求：统计一个字符串中大写字母字符，小写字母字符，数字字符出现的次数,其他字符出现的次数。
-* 分析:字符串是有字符组成的,而字符的值都是有范围的,通过范围来判断是否包含该字符,如果包含就让计数器变量自增 
+* 分析:字符串是有字符组成的,而字符的值都是有范围的,通过范围来判断是否包含该字符,如果包含就让计数器变量自增
+
 ```
 String s = "2$%56*%#ABCDEqqdkdinadkaaabcd123456!@#$%^";
 int big = 0;
@@ -292,9 +323,11 @@ System.out.println(s + "中大写字母有:" + big + "个,小写字母有:" + sm
 ```
 
 ### String类的转换功能
+
 **String的转换功能：**
 
 * byte[] getBytes():把字符串转换为字节数组。
+
 ```
 String s1 = "abc";
 byte[] arr = s1.getBytes();
@@ -308,7 +341,7 @@ byte[] arr2 = s2.getBytes();	//通过gbk码表将字符串转换成字节数组
 //编码:把我们看的懂转换为计算机看的懂得
 //gbk码表一个中文代表两个字节
 for (int i = 0; i < arr2.length; i++) {		                
-    System.out.print(arr2[i] + " ");	
+    System.out.print(arr2[i] + " ");
 }//-60 -29 -70 -61 -60 -29 -70 -61		
 
 //gbk码表特点,中文的第一个字节肯定是负数
@@ -319,9 +352,11 @@ for (int i = 0; i < arr3.length; i++) {
 }//-84 105
 
 ```
+
 * char[] toCharArray():把字符串转换为字符数组。
 * static String valueOf(int i):把int类型的数据转成字符串。
   注意：String类的valueOf方法可以把任意类型的数据转成字符串
+
 
 ```
 String s = "xiaowu";
@@ -333,6 +368,7 @@ for (int i = 0; i < arr.length; i++) {
 ```
 
 * static String valueOf(char[] chs):把字符数组转成字符串。
+
 ```
 char[] arr = {'a','b','c'};
 String s = String.valueOf(arr);	//底层是由String类的构造方法完成的
@@ -360,54 +396,60 @@ String s4 = s2.toUpperCase();
 System.out.println(s3);
 System.out.println(s4);
 
-System.out.println(s3 + s4);	
+System.out.println(s3 + s4);
 //用+拼接字符串更强大,可以用字符串与任意类型相加
 System.out.println(s3.concat(s4));		
 //concat方法调用的和传入的都必须是字符串
 ```
 
 ### 按要求转换字符:链式编程
+
 *  需求：把一个字符串的首字母转成大写，其余为小写。(只考虑英文大小写字母字符)
 *  链式编程:只要保证每次调用完方法返回的是对象,就可以继续调用
-```
 
+```
 public static void main(String[] args) {
 	String s = "woShiZHANGxiaowu";
 	String s2 = s.substring(0, 1).toUpperCase().concat(s.substring(1).toLowerCase());
 	System.out.println(s2);
 }
 ```
+
 ### 把数组转成字符串
+
 *  需求：把数组中的数据按照指定个格式拼接成一个字符串
 	* 举例：
-		* int[] arr = {1,2,3};	
+		* int[] arr = {1,2,3};
 	* 输出结果：
 		* "[1, 2, 3]"
 * 分析:
 	* 1,需要定义一个字符串"["
 	* 2,遍历数组获取每一个元素
 	* 3,用字符串与数组中的元素进行拼接
-	
+
 ```
 public static void main(String[] args) {
 	int[] arr = {1,2,3};
 	String s = "[";//定义一个字符串用来与数组中元素拼接
-	
+
 	for (int i = 0; i < arr.length; i++) {	//{1,2,3}
 		if(i == arr.length - 1) {
 			s = s + arr[i] + "]";			//[1, 2, 3]
 		}else {
-			s = s + arr[i] + ", ";			//[1, 2, 
+			s = s + arr[i] + ", ";			//[1, 2,
 		}
 	}
-	
+
 	System.out.println(s);
 }
 ```
+
 ### String类的其他功能
+
 * A:String的替换功能
 	* String replace(char old,char new)
 	* String replace(String old,String new)
+
 ```
 String s = "xiaowu";
 String s2 = s.replace('i', 'o');			//用o替换i
@@ -419,17 +461,21 @@ System.out.println(s3);
 String s4 = s.replace("wu", "ao");
 System.out.println(s4);
 ```
+
 * B:String的去除字符串两空格
 	* String trim()
+
 ```
 String s = "   xiao    wu    ";
 String s2 = s.trim();
 System.out.println(s2);//xiao    wu
 //
 ```
+
 * C:String的按字典顺序比较两个字符串
 	* int compareTo(String str)
 	* int compareToIgnoreCase(String str)
+
 ```
 String s1 = "a";
 String s2 = "aaaa";
@@ -451,9 +497,10 @@ System.out.println(num3);//32
 
 int num4 = s5.compareToIgnoreCase(s6);
 System.out.println(num4);//0
-```	
+```
 
 ### 字符串反转
+
 *  需求：把字符串反转
 	* 举例：键盘录入"abc"		
 	* 输出结果："cba"
@@ -461,25 +508,27 @@ System.out.println(num4);//0
 	* 1,通过键盘录入获取字符串Scanner
 	* 2,将字符串转换成字符数组
 	* 3,倒着遍历字符数组,并再次拼接成字符串
-	* 4,打印 
+	* 4,打印
+
 ```
 public static void main(String[] args) {
 	Scanner sc = new Scanner(System.in);	//创建键盘录入对象
 	System.out.println("请输入一个字符串:");
 	String line = sc.nextLine();//将键盘录入的字符串存储在line中
-	
+
 	char[] arr = line.toCharArray();	//将字符串转换为字符数组
-	
+
 	String s = "";
 	for(int i = arr.length-1; i >= 0; i--) {//倒着遍历字符数组
 		s = s + arr[i];		//拼接成字符串
 	}
-	
+
 	System.out.println(s);
 }
 ```
 
 ### 在大串中查找小串出现的次数
+
 *  需求：统计大串中小串出现的次数
 
 ```
@@ -488,7 +537,7 @@ public static void main(String[] args) {
 	String max = "woshixiaowu,wodemingzhishixiaowu,wodemingzhishixiaowu";
 	//定义小串
 	String min = "xiaowu";
-	
+
 	//定义计数器变量
 	int count = 0;
 	//定义索引
@@ -498,8 +547,9 @@ public static void main(String[] args) {
 		count++;									//计数器自增
 		max = max.substring(index + min.length());
 	}
-	
+
 	System.out.println(count);
 }
 ```
+
 学习来源：伟大黑马
