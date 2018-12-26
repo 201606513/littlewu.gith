@@ -35,12 +35,16 @@
 ##### mysql学习笔记
 
 ##### mybatista学习笔记
-- [jdbc复习](?file=005-mybatista学习笔记/001-jdbc复习 "jdbc复习")
-- [认识mybatis](?file=005-mybatista学习笔记/002-认识mybatis "认识mybatis")
+- [mybatis入门](?file=005-mybatista学习笔记/001-mybatis入门 "mybatis入门")
+- [mybatis详解](?file=005-mybatista学习笔记/002-mybatis详解 "mybatis详解")
+- [mybatis高级](?file=005-mybatista学习笔记/003-mybatis高级 "mybatis高级")
 
 ##### spring学习笔记
 
 ##### springMVC学习笔记
+- [springmvc入门](?file=007-springMVC学习笔记/001-springmvc入门 "springmvc入门")
+- [springmvc高级](?file=007-springMVC学习笔记/002-springmvc高级 "springmvc高级")
+- [springMVC拦截器](?file=007-springMVC学习笔记/003-springMVC拦截器 "springMVC拦截器")
 
 ##### jpa学习笔记
 
