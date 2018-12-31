@@ -15,6 +15,14 @@ SpringBoot是Spring项目中的一个子工程，与我们所熟知的Spring-fra
 
 其实人们把Spring Boot 称为搭建程序的`脚手架`。其最主要作用就是帮我们快速的构建庞大的spring项目，并且尽可能的减少一切xml配置，做到开箱即用，迅速上手，让我们关注与业务而非配置。
 
+> 简化Spring应用开发的一个框架；
+>
+> 整个Spring技术栈的一个大整合；
+>
+> J2EE开发的一站式解决方案；
+
+
+
 ## 1.2.为什么要学习SpringBoot
 
 java一直被人诟病的一点就是臃肿、麻烦。当我们还在辛苦的搭建项目时，可能Python程序员已经把功能写好了，究其原因注意是两点：
@@ -58,13 +66,35 @@ Spring Boot 主要目标是：
 
 [详细参照微服务文档](https://martinfowler.com/articles/microservices.html#MicroservicesAndSoa)
 
+
+
+## 1.5.springboot的优点
+
+
+
+* 快速创建独立运行的Spring项目以及主流框架的集成
+
+* 使用嵌入式的servlet容器，应用无需打成jar包
+
+* starters自动依赖与版本控制。
+
+* 大量的自动配置，简化开发，也可以修改默认值
+
+* 无需配置xml，无代码生成，开箱即用
+
+* 准生产环境的运行时应用监控
+
+* 与云计算天然集成
+
+  
+
 # 2.快速入门HelloWorld
 
 ## 2.1-maven设置
 
 ### 2.1.1-maven的settings.xml设置
 
-给maven的settings.xml配置文件的profiles标签添加
+给maven的settings.xml配置文件的profiles标签添加，告诉maven用jdk1.8
 
 ```
 <profile>
@@ -207,9 +237,9 @@ public class Application {
 接下来，我们就可以像以前那样开发SpringMVC的项目了！
 
 >@RestController = @Controller + @ResponseBody
-@GetMapping("") = @RequestMapping(
-   method = RequestMethod.GET
-   })
+>@GetMapping("") = @RequestMapping( method = RequestMethod.GET })
+
+
 
 编写一个controller：
 
@@ -240,6 +270,26 @@ public class HelloController {
 
 浏览器发送hello请求，服务器接受请求并处理，响应hello, spring boot!字符串；
 
+
+
+### 2.2.6-简化部署
+
+```xml
+ <!-- 这个插件，可以将应用打包成一个可执行的jar包；-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+```
+
+将这个应用打成jar包，在dos窗口找到其所在目录直接使用java -jar的命令进行执行；
+
+
+
 # 3.探究HelloWorld
 
 ## 3.1-POM文件
@@ -267,6 +317,8 @@ Spring Boot的版本仲裁中心；
 
 以后我们导入依赖默认是不需要写版本；（没有在dependencies里面管理的依赖自然需要声明版本号）
 
+
+
 ### 3.1.2-启动器
 
 ```xml
@@ -276,11 +328,17 @@ Spring Boot的版本仲裁中心；
 </dependency>
 ```
 
-**spring-boot-starter**-==web==：
+拆分一下：**spring-boot-starter  +   web**：
 
 ​    spring-boot-starter：spring-boot场景启动器；帮我们导入了web模块正常运行所依赖的组件；
 
-Spring Boot将所有的功能场景都抽取出来，做成一个个的starters（启动器），只需要在项目里面引入这些starter相关场景的所有依赖都会导入进来。要用什么功能就导入什么场景的启动器
+Spring Boot将所有的功能场景都抽取出来，做成一个个的starters（启动器），只需要在项目里面引入这些
+
+
+
+starter相关场景的所有依赖都会导入进来。要用什么功能就导入什么场景的启动器
+
+
 
 ## 3.2-主程序类，主入口类
 
@@ -301,7 +359,7 @@ public class Application {
 
 
 
-@**SpringBootApplication**:    SpringBoot应用标注在某个类上说明这个类是SpringBoot的主配置类，SpringBoot就应该运行这个类的main方法来启动SpringBoot应用；
+@**SpringBootApplication**:    SpringBoot应用标注在某个类上，说明这个类是SpringBoot的主配置类，SpringBoot就应该运行这个类的main方法来启动SpringBoot应用；
 
 ```java
 @Target(ElementType.TYPE)
@@ -316,11 +374,17 @@ public class Application {
 public @interface SpringBootApplication {
 ```
 
->* @**SpringBootConfiguration**:Spring Boot的配置类；
-标注在某个类上，表示这是一个Spring Boot的配置类；
-* @**Configuration**:配置类上来标注这个注解；
- 配置类 -----  配置文件；配置类也是容器中的一个组件；@Component
+
+
+* @**SpringBootConfiguration**:Spring Boot的配置类；
+
+  标注在某个类上，表示这是一个Spring Boot的配置类；
+
+  ​      
+
 * @**EnableAutoConfiguration**：开启自动配置功能；
+
+   
 
 ### 3.2.1-@SpringBootConfiguration
 
@@ -335,9 +399,22 @@ public @interface SpringBootConfiguration {
 }
 ```
 
+
+
+- @**Configuration**:配置类上来标注这个注解；
+
+配置类 -----  配置文件；配置类也是容器中的一个组件；@Component
+
+
+
 通过这段我们可以看出，在这个注解上面，又有一个`@Configuration`注解。通过上面的注释阅读我们知道：这个注解的作用就是声明当前类是一个配置类，然后Spring会自动扫描到添加了`@Configuration`的类，并且读取其中的配置信息。而`@SpringBootConfiguration`是来声明当前类是SpringBoot应用的配置类，项目中只能有一个。所以一般我们无需自己添加。
 
+
+
 ### 3.2.2-@EnableAutoConfiguration
+
+以前我们需要配置的东西，Spring Boot帮我们自动配置；
+@**EnableAutoConfiguration**告诉SpringBoot开启自动配置功能；这样自动配置才能生效；
 
 ```
 @Target({ElementType.TYPE})
@@ -355,29 +432,34 @@ public @interface EnableAutoConfiguration {
 }
 ```
 
-以前我们需要配置的东西，Spring Boot帮我们自动配置；
-@**EnableAutoConfiguration**告诉SpringBoot开启自动配置功能；这样自动配置才能生效；
-
 * @**AutoConfigurationPackage**：自动配置包
 
-* @**Import**(AutoConfigurationPackages.Registrar.class)：
+  ​	@**Import**(AutoConfigurationPackages.Registrar.class)：Spring的底层注解@Import，给容器中导入一个组件；导入的组件由AutoConfigurationPackages.Registrar.class；**将主配置类（@SpringBootApplication标注的类）的所在包及下面所有子包里面的所有组件扫描到Spring容器；**
 
-​Spring的底层注解@Import，给容器中导入一个组件；导入的组件由AutoConfigurationPackages.Registrar.class；
-将主配置类（@SpringBootApplication标注的类）的所在包及下面所有子包里面的所有组件扫描到Spring容器；
 
-@**Import**(EnableAutoConfigurationImportSelector.class)；
 
-给容器中导入组件？
 
-**EnableAutoConfigurationImportSelector**：导入哪些组件的选择器；
-将所有需要导入的组件以全类名的方式返回；这些组件就会被添加到容器中；
-会给容器中导入非常多的自动配置类（xxxAutoConfiguration）；就是给容器中导入这个场景需要的所有组件，并配置好这些组件；        
+@**Import**(EnableAutoConfigurationImportSelector.class)；给容器中导入组件？
 
-有了自动配置类，免去了我们手动编写配置注入功能组件等的工作；
+> **EnableAutoConfigurationImportSelector**：导入哪些组件的选择器；
+>
+> 将所有需要导入的组件以全类名的方式返回；这些组件就会被添加到容器中；
+>
+> 会给容器中导入非常多的自动配置类（xxxAutoConfiguration）；就是给容器中导入这个场景需要的所			有组件，并配置好这些组件； 
+>
+> 有了自动配置类，免去了我们手动编写配置注入功能组件等的工作；
+>
+> 
+>
+> SpringFactoriesLoader.loadFactoryNames(EnableAutoConfiguration.class,classLoader)；
+>
+> Spring Boot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作；
+>
+> 以前我们需要自己配置的东西，自动配置类都帮我们；
+>
+> J2EE的整体整合解决方案和自动配置都在spring-boot-autoconfigure-2.0.0RELEASE.jar；
 
-SpringFactoriesLoader.loadFactoryNames(EnableAutoConfiguration.class,classLoader)；
 
-==Spring Boot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值，将这些值作为自动配置类导入到容器中，自动配置类就生效，帮我们进行自动配置工作；==以前我们需要自己配置的东西，自动配置类都帮我们；
 
 关于这个注解，官网上有一段说明：
 
@@ -397,7 +479,7 @@ application and sets up Spring accordingly.
 
 
 
-####  3.2.3-@ComponentScan
+###  3.2.3-@ComponentScan
 
 源码：
 
@@ -417,6 +499,26 @@ public @interface ComponentScan {
 
 而我们的@SpringBootApplication注解声明的类就是main函数所在的启动类，因此扫描的包是该类所在包及其子包。因此，**一般启动类会放在一个比较前的包目录中。**
 
-J2EE的整体整合解决方案和自动配置都在spring-boot-autoconfigure-2.0.0RELEASE.jar；
 
-​        
+
+# 4. 使用 Spring Initializer快速创建项目
+
+
+
+IDE都支持使用Spring的项目创建向导快速创建一个Spring Boot项目；
+
+选择我们需要的模块；向导会联网创建Spring Boot项目；
+
+默认生成的Spring Boot项目；
+
+- 主程序已经生成好了，我们只需要我们自己的逻辑
+
+- resources文件夹中目录结构
+
+  - static：保存所有的静态资源； js css  images；
+
+  - templates：保存所有的模板页面；（Spring Boot默认jar包使用嵌入式的Tomcat，默认不支持JSP页面）；可以使用模板引擎（freemarker、thymeleaf）；
+
+  - application.properties：Spring Boot应用的配置文件；可以修改一些默认设置；
+
+    

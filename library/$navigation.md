@@ -57,6 +57,9 @@
 
 ##### springboot
 - [SpringBoot入门](?file=011-springboot/001-SpringBoot入门 "SpringBoot入门")
+- [springboot配置](?file=011-springboot/002-springboot配置 "springboot配置")
+- [springboot日志框架](?file=011-springboot/003-springboot日志框架 "springboot日志框架")
+- [Springboot Web开发简介](?file=011-springboot/004-Springboot Web开发简介 "Springboot Web开发简介")
 
 ##### springCloud
 
