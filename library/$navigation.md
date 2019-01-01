@@ -66,6 +66,9 @@
 - [springboot  数据访问](?file=011-springboot/008-springboot  数据访问 "springboot  数据访问")
 - [springboot  启动配置原理](?file=011-springboot/009-springboot  启动配置原理 "springboot  启动配置原理")
 - [springboot  Docker](?file=011-springboot/010-springboot  Docker "springboot  Docker")
+- [springboot  thymeleaf](?file=011-springboot/011-springboot  thymeleaf "springboot  thymeleaf")
+- [springboot  全局配置](?file=011-springboot/019-springboot  全局配置 "springboot  全局配置")
+- [springboot  启动器](?file=011-springboot/020-springboot  启动器 "springboot  启动器")
 
 ##### springCloud
 
@@ -79,3 +82,9 @@
 
 ##### 便捷开发
 - [Lombok](?file=014-便捷开发/001-Lombok "Lombok")
+
+##### 项目笔记
+- **springboot应用**
+    - [springboot初步应用](?file=015-项目笔记/001-springboot应用/001-springboot初步应用 "springboot初步应用")
+- **springboot商城**
+    - [01springboot](?file=015-项目笔记/002-springboot商城/001-01springboot "01springboot")
