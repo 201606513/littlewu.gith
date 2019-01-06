@@ -183,6 +183,13 @@ public void contextLoads() {
 SpringBoot修改日志的默认配置
 
 ```properties
+yml配置
+
+  logging:
+   level:
+     com.demo.api: DEBUG
+     
+     
 logging.level.com.zxw=trace
 
 #logging.path=

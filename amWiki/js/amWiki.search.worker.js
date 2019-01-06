@@ -147,8 +147,8 @@
                         for (var i = 0, item; item = contentMatch[i]; i++) {
                             if (i < 2) {
                                 content += item.replace(wordsReg, function (match) {
-                                        return '<mark>' + match + '</mark>';
-                                    }) + '... ';
+                                    return '<mark>' + match + '</mark>';
+                                }) + '... ';
                             }
                         }
                         content += '</p>';

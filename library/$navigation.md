@@ -4,6 +4,8 @@
 ##### Java开发工具
 - [Eclipse使用](?file=000-Java开发工具/001-Eclipse使用 "Eclipse使用")
 - [Eclipse快捷键大全](?file=000-Java开发工具/002-Eclipse快捷键大全 "Eclipse快捷键大全")
+- [idea快捷键](?file=000-Java开发工具/003-idea快捷键 "idea快捷键")
+- [nginx篇](?file=000-Java开发工具/010-nginx篇 "nginx篇")
 
 ##### Java学习笔记
 - [Object类](?file=001-Java学习笔记/001-Object类 "Object类")
@@ -38,8 +40,11 @@
 - [mybatis入门](?file=005-mybatista学习笔记/001-mybatis入门 "mybatis入门")
 - [mybatis详解](?file=005-mybatista学习笔记/002-mybatis详解 "mybatis详解")
 - [mybatis高级](?file=005-mybatista学习笔记/003-mybatis高级 "mybatis高级")
+- [mybatis逆向生成](?file=005-mybatista学习笔记/004-mybatis逆向生成 "mybatis逆向生成")
+- [mybatis-Pagehelper插件](?file=005-mybatista学习笔记/005-mybatis-Pagehelper插件 "mybatis-Pagehelper插件")
 
 ##### spring学习笔记
+- [spring父子容器](?file=006-spring学习笔记/007-spring父子容器 "spring父子容器")
 
 ##### springMVC学习笔记
 - [springmvc入门](?file=007-springMVC学习笔记/001-springmvc入门 "springmvc入门")
